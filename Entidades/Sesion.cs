@@ -50,29 +50,6 @@ namespace PPAI.Entidades
             set => this.usuarioSeleccionado = value;
         }
 
-        public Usuario esTuUsuario(string nombreUsuario, string contraseña, Sesion sesion)
-        {
-            List<Usuario> usuarios_registrados = obtenerUsuariosRegistrados();
-
-            Usuario logueado = new Usuario(nombreUsuario, contraseña, true);
-            this.usuarioSeleccionado = logueado;
-            bool usu = logueado.esUsuario(nombreUsuario);
-            if (usu)
-            {
-                return logueado;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private List<Usuario> obtenerUsuariosRegistrados()
-        {
-            var usuarios = usuariosServicioBD.obtenerUsuariosRegistrados();
-            return usuarios;
-        }
-
         public Usuario mostrarCientifico(Sesion sesionActual)
         {
             sesionActual.UsuarioSeleccionado = Datos.usuario;
