@@ -21,7 +21,7 @@ namespace PPAI.Entidades
 
         public Sesion()
         {
-
+            usuariosServicioBD = new UsuarioServicioBD();
         }
 
         public Sesion(DateTime fechaHoraFin, DateTime fechaHoraInicio, Usuario usuarioSeleccionado)
@@ -29,7 +29,7 @@ namespace PPAI.Entidades
             this.fechaHoraFin = fechaHoraFin;
             this.fechaHoraInicio = fechaHoraInicio;
             this.usuarioSeleccionado = usuarioSeleccionado;
-            this.usuariosServicioBD = new UsuarioServicioBD();
+            usuariosServicioBD = new UsuarioServicioBD();
         }
 
         public DateTime FechaHoraInicio
@@ -50,19 +50,10 @@ namespace PPAI.Entidades
             set => this.usuarioSeleccionado = value;
         }
 
-        public Usuario mostrarCientifico(Sesion sesionActual)
-        {
-            sesionActual.UsuarioSeleccionado = Datos.usuario;
-            
-            if(sesionActual.UsuarioSeleccionado != null)
-            {
-                return UsuarioSeleccionado.obtenerPersonal();             
-            }
-            else
-            {
-                MessageBox.Show("No hay usuario seleccionado");
-                return null;
-            }
+        public Usuario mostrarCientifico()
+        {   
+            this.UsuarioSeleccionado = usuariosServicioBD.obtenerPersonal();
+            return this.usuarioSeleccionado;
         }
 
     }

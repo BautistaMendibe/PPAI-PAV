@@ -16,7 +16,6 @@ namespace PPAI.Controlador
         private RegistrarIngresoRTMantenimientoCorrectivo pantalla;
         private List<RecursoTecnologico> lisRT;
         private RecursoTecnologico rt;
-        private Sesion sesion;
         private Estado estado;
         private List<AsignaciónResponsableTecnicoRT> asigResTecRT;
         private AsignaciónResponsableTecnicoRT ra;
@@ -30,6 +29,7 @@ namespace PPAI.Controlador
         private Estado esEnMCorr;
         private PersonalCientificoServicio personalCientificoServicioBD;
         private SesionServicio sesionServicioBD;
+        private Usuario personalLogeado;
 
 
 
@@ -47,8 +47,8 @@ namespace PPAI.Controlador
         public void registrarIngresoRTMantenimientoCorrectivo()
         {
             PersonalCientifico pc = obtenerPersonalCientifico();
-            CentroDeInvestigacion ci = Datos.ci;
-            obtenerUsuarioLogueado(ci);
+            //CentroDeInvestigacion ci = Datos.ci;
+            Usuario usuarioLogeado = obtenerUsuarioLogueado();
             
             ra = obtenerRTCientifico(pc);
             //Obtener RTDisponibles para la asignacion responsable tecnico RT
@@ -58,10 +58,12 @@ namespace PPAI.Controlador
             
         }       
 
-        public void obtenerUsuarioLogueado(CentroDeInvestigacion ci)
+        public Usuario obtenerUsuarioLogueado()
         {
-            this.sesion = sesionServicioBD.getSesion();
-            this.sesion.mostrarCientifico(sesion);
+            Sesion sesion = sesionServicioBD.getSesion();
+            Usuario usuario = sesion.mostrarCientifico();
+
+            return usuario;
         }
 
         public AsignaciónResponsableTecnicoRT obtenerRTCientifico(PersonalCientifico pc)
@@ -94,7 +96,8 @@ namespace PPAI.Controlador
 
         public PersonalCientifico obtenerPersonalCientifico()
         {
-            pc = personalCientificoServicioBD.obtenerPersonalCientifico();
+            pc = Datos.pc;
+            //pc = personalCientificoServicioBD.obtenerPersonalCientifico();
             return pc;
         }
 

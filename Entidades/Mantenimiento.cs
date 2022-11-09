@@ -8,6 +8,7 @@ namespace PPAI.Entidades
 {
     public class Mantenimiento
     {
+        private int? idMantenimiento;
         private DateTime? fechaFin;
         private DateTime? fechaInicio;
         private DateTime? fechaInicioPrevista;
@@ -20,6 +21,7 @@ namespace PPAI.Entidades
         }
 
         public DateTime? FechaInicio { get => fechaInicio; set => fechaInicio = value; }
+        public int? IdMantenimiento { get => idMantenimiento; set => idMantenimiento = value; }
 
         public DateTime? FechaInicioPrevista { get => fechaInicioPrevista; set => fechaInicioPrevista = value; }
 

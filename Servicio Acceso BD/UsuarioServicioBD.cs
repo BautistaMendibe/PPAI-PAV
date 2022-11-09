@@ -27,5 +27,20 @@ namespace PPAI.Servicio_Acceso_BD
 
             return usuarios;
         }
+
+        public Usuario obtenerPersonal()
+        {
+            var usuarioLogeado = new Usuario();
+            var sql = $"SELECT * FROM Usuario WHERE id=1";
+            var tablaResultado = DBHelper.GetDBHelper().ConsultaSQL(sql);
+
+            foreach (DataRow fila in tablaResultado.Rows)
+            {
+                usuarioLogeado.NombreDeUsuario = fila["descripcion"].ToString();
+                usuarioLogeado.Password = fila["password"].ToString();
+            }
+
+            return usuarioLogeado;
+        }
     }
 }

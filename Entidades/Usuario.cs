@@ -50,20 +50,6 @@ namespace PPAI.Entidades
             set => habilitado = false;
         }
 
-        public bool esUsuario(string nombreUsuario)
-        {
-            usuario = "admin";
-            clave = "admin";
-            if (nombreUsuario.Equals(usuario))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public Usuario obtenerPersonal()
         {           
             return this;
