@@ -11,7 +11,7 @@ namespace PPAI.Entidades.Estados
         public string Nombre { get => nombre; set => nombre = value; }
         public string Ambito { get => ambito; set => ambito = value; }
 
-        public override void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo, List<CambioEstadoRT> cambiosEstadosRT)
+        public override void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo, List<CambioEstadoRT> cambiosEstadosRT, RecursoTecnologico rt)
         {
             Console.WriteLine("Nada");
         }

@@ -151,21 +151,6 @@ namespace PPAI.Entidades
             bool esDisponible = estadoServicioBD.esDisponible(rt.numeroRT);
             return esDisponible;
 
-            //cambioEstado = rt.CambioEstado;
-            //for (int i = 0; i < cambioEstado.Count; i++)
-            //{
-            //    bool esActual = cambioEstado[i].esActual(cambioEstado[i]);
-            //    if (esActual)
-            //    {
-            //        bool esDisp = cambioEstado[i].esDisponible(cambioEstado[i]);
-            //        if (esDisp)
-            //        {
-            //            this.cambioEstadoActual = cambioEstado[i];
-            //            return true;
-            //        }
-            //    }
-            //}
-
         }
 
         public (int,string,string,string) mostrarDatosRT(RecursoTecnologico rt)
@@ -216,7 +201,17 @@ namespace PPAI.Entidades
 
         public void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo)
         {
-            estadoDisponibleRT.ingresarEnMantenimientoCorrectivo(time, fechaFinPrev, motivo, cambioEstado);
+            estadoDisponibleRT.ingresarEnMantenimientoCorrectivo(time, fechaFinPrev, motivo, cambioEstado, this);
+        }
+
+        public void agregarHistorialRT(CambioEstadoRT nuevoHistorial)
+        {
+            this.cambioEstado.Add(nuevoHistorial);
+        }
+
+        public void setEstado(Estado estado)
+        {
+            this.Estado = estado;
         }
 
         public void cancelarTurnos(DateTime time, Estado estadoRT)
