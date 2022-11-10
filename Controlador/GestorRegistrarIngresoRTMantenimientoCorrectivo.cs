@@ -99,13 +99,6 @@ namespace PPAI.Controlador
             return lisRT;
         }
 
-        public PersonalCientifico obtenerPersonalCientifico()
-        {
-            pc = Datos.pc;
-            //pc = personalCientificoServicioBD.obtenerPersonalCientifico();
-            return pc;
-        }
-
         public RecursoTecnologico rtSeleccionado(string numero)
         {
             for (int i = 0; lisRT.Count > i; i++)
