@@ -15,6 +15,8 @@ namespace PPAI.Entidades
         private bool esReservable;
         private bool esCancelable;
 
+        public Estado() { }
+
         public int Id
         {
             get => id; set => id = value; 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAI.Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,14 @@ namespace PPAI.Entidades
         private int id_CambioEstadoRT;
         private int id_turno;
 
+        private Estado estado;
+        private EstadoServicio estadoServicioBD;
+
+
+        public RecursoTecnologico()
+        {
+            estadoServicioBD = new EstadoServicio();
+        }
 
         public int NumeroRT
         {
@@ -79,14 +88,14 @@ namespace PPAI.Entidades
             get => cambioEstado; set => cambioEstado = value;
         }
 
-        public RecursoTecnologico()
-        {
-
-        }
-
         public Mantenimiento Mantenimiento
         {
             get => mantenimiento; set => mantenimiento = value;
+        }
+
+        public Estado Estado
+        {
+            get => estado; set => estado = value;
         }
 
         public int IdMantenimiento
@@ -130,22 +139,25 @@ namespace PPAI.Entidades
 
         public bool esDisponible(RecursoTecnologico rt)
         {
-            cambioEstado = rt.CambioEstado;
-            for (int i = 0; i < cambioEstado.Count; i++)
-            {
-                bool esActual = cambioEstado[i].esActual(cambioEstado[i]);
-                if (esActual)
-                {
-                    bool esDisp = cambioEstado[i].esDisponible(cambioEstado[i]);
-                    if (esDisp)
-                    {
-                        this.cambioEstadoActual = cambioEstado[i];
-                        return true;
-                    }
-                }
-            }
-            
-            return false;
+
+            bool esDisponible = estadoServicioBD.esDisponible(rt.numeroRT);
+            return esDisponible;
+
+            //cambioEstado = rt.CambioEstado;
+            //for (int i = 0; i < cambioEstado.Count; i++)
+            //{
+            //    bool esActual = cambioEstado[i].esActual(cambioEstado[i]);
+            //    if (esActual)
+            //    {
+            //        bool esDisp = cambioEstado[i].esDisponible(cambioEstado[i]);
+            //        if (esDisp)
+            //        {
+            //            this.cambioEstadoActual = cambioEstado[i];
+            //            return true;
+            //        }
+            //    }
+            //}
+
         }
 
         public (int,string,string,string) mostrarDatosRT(RecursoTecnologico rt)
