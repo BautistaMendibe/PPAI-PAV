@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PPAI.AccesoDatos;
+using PPAI.Servicios;
 
 namespace PPAI.Entidades
 {
@@ -43,19 +44,9 @@ namespace PPAI.Entidades
 
         public (string,string) mostrarMarcaYModelo()
         {
-            Marca marca = Datos.marca1;
-            for (int i = 0; i < marca.Modelos.Count; i++)
-            {
-                if (marca.Modelos[i].Nombre.ToString().Equals(this.Nombre.ToString()))
-                {
-                    this.marca = marca;
-                    string nombreMarca = marca.mostrarNombre();
-                    string nombreModelo = this.Nombre.ToString();
-                    return (nombreMarca, nombreModelo);
-                }
-            }
-            return (null,null);
-            
+
+            string nombreMarca = marca.mostrarNombre();
+            return (nombre.Trim(), nombreMarca.Trim());
         }
     }
 }

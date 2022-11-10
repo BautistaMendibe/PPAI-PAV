@@ -53,15 +53,19 @@ namespace PPAI.Entidades
             rt = ra.RT;
             List<string> datos = new List<string>();
             //string tipo, modelo, marca;
+
             for (int i = 0; i < rt.Count; i++)
             {
                 bool esDispo = rt[i].esDisponible(rt[i]);
+
+                // Si no es diponible lo eliminamos de la lista
                 if (!esDispo)
                 {
                     rt.RemoveAt(i);
                 }
             }
 
+            // Mientras existan RT Disponibles
             for (int i = 0; i < rt.Count; i++)
             {
                 if (rt[i] != null)

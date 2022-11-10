@@ -12,6 +12,8 @@ namespace PPAI.Servicios
     class ModeloServicio
     {
 
+        private MarcaServicio marcaServicioBD = new MarcaServicio();
+
         public Modelo getModelo(int id)
         {
             var sql = $"SELECT * FROM Modelo WHERE id = {id}";
@@ -21,6 +23,8 @@ namespace PPAI.Servicios
             foreach (DataRow fila in tablaResultado.Rows)
             {
                 modelo.Nombre = fila["nombre"].ToString();
+                int id_marca = Convert.ToInt32(fila["id_marca"].ToString());
+                modelo.Marca = marcaServicioBD.getMarca(id_marca);
             }
 
             return modelo;
