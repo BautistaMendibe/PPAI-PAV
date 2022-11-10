@@ -82,6 +82,30 @@ namespace PPAI.Entidades
             }
         }
 
+        public bool esReservado()
+        {
+            if (Nombre.Trim() == "ConReservaConfirmada")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool esPendienteConfirmacionReserva()
+        {
+            if (Nombre.Trim() == "PendienteConfirmacionReserva")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool esPendienteConfirmacionReserva(Estado e)
         {
             if (e.Nombre.ToString().Equals("PendienteConfirmacionReserva"))
@@ -93,6 +117,8 @@ namespace PPAI.Entidades
                 return false;
             }
         }
+
+        
 
         public bool sCancelable(string nombre, string ambito)
         {

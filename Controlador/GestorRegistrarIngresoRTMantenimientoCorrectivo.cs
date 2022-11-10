@@ -126,15 +126,24 @@ namespace PPAI.Controlador
         {
             timeActual = obtenerFechaHora();
             listaTurnos = obtenerTurnosRTCancelables();
-            
+
             if (listaTurnos != null)
-            {
-                pantalla.aviso2();
-            }
-            else
             {
                 obtenerReservasVigentes();
             }
+            else
+            {
+                pantalla.aviso2();
+            }
+
+            //if (listaTurnos != null)
+            //{
+            //    pantalla.aviso2();
+            //}
+            //else
+            //{
+            //    obtenerReservasVigentes();
+            //}
 
         }
 

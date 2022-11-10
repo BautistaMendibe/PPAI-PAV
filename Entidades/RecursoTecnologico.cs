@@ -195,17 +195,15 @@ namespace PPAI.Entidades
 
         public List<Turno> mostrarTurnosReserva()
         {
-            List<Turno> turnosRT = turnoServicioBD.getTurnosPorRT(this.numeroRT);
-
-            foreach (Turno turno in turnosRT)
+            for (int i = turnosRT.Count - 1; i >= 0; i--)
             {
-                if (turno.esConReserva() == false)
+                if (turnosRT[i].esConReserva() == false)
                 {
-                    this.turnos.Remove(turno);
+                    turnosRT.Remove(turnosRT[i]);
                 }
             }
 
-            foreach (Turno turno in this.turnos)
+            foreach (Turno turno in this.turnosRT)
             {
                 turno.mostrarDatosTurno();
             }

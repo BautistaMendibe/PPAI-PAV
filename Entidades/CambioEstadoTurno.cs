@@ -58,10 +58,10 @@ namespace PPAI.Entidades
 
         public bool esConReserva()
         {
-            bool esReserv = this.EstadoActual.esReservado(estado);
-            bool esPendi = this.EstadoActual.esPendienteConfirmacionReserva(estado);
+            bool esReserv = this.EstadoActual.esReservado();
+            bool esPendi = this.EstadoActual.esPendienteConfirmacionReserva();
 
-            if (esReserv && esPendi)
+            if (esReserv || esPendi)
             {
                 return true;
             }

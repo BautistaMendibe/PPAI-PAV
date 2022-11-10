@@ -90,10 +90,10 @@ namespace PPAI.Entidades
                     {
                         this.ultimo = cambio;
                     }
-                }
-                if (ultimo.esCancelable())
-                {
-                    return true;
+                    if (ultimo != null && ultimo.esCancelable())
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
