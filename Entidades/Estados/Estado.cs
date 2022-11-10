@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace PPAI.Entidades.Estados
 {
-    class Disponible
+    abstract class Estado
     {
+        public string nombre;
+        public string ambito;
+
+
+        abstract public bool esDisponible();
+
     }
 }

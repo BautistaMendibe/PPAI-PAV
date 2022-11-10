@@ -49,7 +49,6 @@ namespace PPAI.Controlador
         public void registrarIngresoRTMantenimientoCorrectivo()
         {
             
-            //CentroDeInvestigacion ci = Datos.ci;
             Usuario usuarioLogueado = obtenerUsuarioLogueado();
 
             PersonalCientifico pc = usuarioLogueado.obtenerPersonalCientifico();
