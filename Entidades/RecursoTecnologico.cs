@@ -36,6 +36,7 @@ namespace PPAI.Entidades
         private EstadoServicio estadoServicioBD;
         private TurnoServicioBD turnoServicioBD;
         private List<Turno> turnosRT;
+        private RecursoTecnologicoServicio recursoTecnologicoServicioBD;
 
 
         // Constructor
@@ -44,6 +45,7 @@ namespace PPAI.Entidades
             estadoServicioBD = new EstadoServicio();
             turnoServicioBD = new TurnoServicioBD();
             estadoDisponibleRT = new DisponibleRT();
+            recursoTecnologicoServicioBD = new RecursoTecnologicoServicio();
         }
 
         public int NumeroRT
@@ -212,6 +214,12 @@ namespace PPAI.Entidades
         public void setEstado(Estado estado)
         {
             this.Estado = estado;
+            actualizarEnBase();
+        }
+
+        private void actualizarEnBase()
+        {
+            recursoTecnologicoServicioBD.actualizarEstado(this.numeroRT);
         }
 
         public void cancelarTurnos(DateTime time, Estado estadoRT)

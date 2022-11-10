@@ -111,5 +111,11 @@ namespace PPAI.Servicios
 
             return recursoTecnologico;
         }
+
+        public void actualizarEstado(int numRT)
+        {
+            var sql = $"UPDATE RecursoTecnologico SET id_estado = 6 WHERE numeroRT = {numRT}";
+            DBHelper.GetDBHelper().ConsultaSQL(sql);
+        }
     }
 }

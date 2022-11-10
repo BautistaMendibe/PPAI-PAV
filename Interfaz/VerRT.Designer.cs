@@ -33,21 +33,13 @@ namespace PPAI.Interfaz
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerRT));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grillaRT = new System.Windows.Forms.DataGridView();
-            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagenes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Periodicidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fraccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.responsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaRT)).BeginInit();
             this.SuspendLayout();
@@ -77,30 +69,16 @@ namespace PPAI.Interfaz
             this.grillaRT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grillaRT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaRT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FechaAlta,
             this.Num,
             this.Tipo,
-            this.Marc,
             this.Modelo,
-            this.Imagenes,
-            this.Periodicidad,
-            this.Fraccion,
-            this.Duracion,
-            this.estado,
-            this.responsable});
+            this.estado});
             this.grillaRT.Location = new System.Drawing.Point(12, 44);
             this.grillaRT.Name = "grillaRT";
             this.grillaRT.RowTemplate.Height = 26;
             this.grillaRT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grillaRT.Size = new System.Drawing.Size(825, 324);
             this.grillaRT.TabIndex = 2;
-            // 
-            // FechaAlta
-            // 
-            this.FechaAlta.DataPropertyName = "FechaAlta";
-            this.FechaAlta.HeaderText = "FechaAlta";
-            this.FechaAlta.Name = "FechaAlta";
-            this.FechaAlta.Visible = false;
             // 
             // Num
             // 
@@ -109,6 +87,7 @@ namespace PPAI.Interfaz
             this.Num.DefaultCellStyle = dataGridViewCellStyle2;
             this.Num.HeaderText = "Numero";
             this.Num.Name = "Num";
+            this.Num.Width = 200;
             // 
             // Tipo
             // 
@@ -117,64 +96,22 @@ namespace PPAI.Interfaz
             this.Tipo.DefaultCellStyle = dataGridViewCellStyle3;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.Name = "Tipo";
-            this.Tipo.Width = 150;
-            // 
-            // Marc
-            // 
-            this.Marc.DataPropertyName = "Marca";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Marc.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Marc.HeaderText = "Marca";
-            this.Marc.Name = "Marc";
-            this.Marc.Width = 150;
+            this.Tipo.Width = 200;
             // 
             // Modelo
             // 
             this.Modelo.DataPropertyName = "Modelo";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Modelo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Modelo.DefaultCellStyle = dataGridViewCellStyle4;
             this.Modelo.HeaderText = "Modelo";
             this.Modelo.Name = "Modelo";
-            this.Modelo.Width = 150;
-            // 
-            // Imagenes
-            // 
-            this.Imagenes.DataPropertyName = "Imagenes";
-            this.Imagenes.HeaderText = "Imagenes";
-            this.Imagenes.Name = "Imagenes";
-            this.Imagenes.Visible = false;
-            // 
-            // Periodicidad
-            // 
-            this.Periodicidad.DataPropertyName = "Periodicidad";
-            this.Periodicidad.HeaderText = "Periodicidad";
-            this.Periodicidad.Name = "Periodicidad";
-            this.Periodicidad.Visible = false;
-            // 
-            // Fraccion
-            // 
-            this.Fraccion.DataPropertyName = "FraccionHorarioTurno";
-            this.Fraccion.HeaderText = "Fraccion";
-            this.Fraccion.Name = "Fraccion";
-            this.Fraccion.Visible = false;
-            // 
-            // Duracion
-            // 
-            this.Duracion.DataPropertyName = "Duracion";
-            this.Duracion.HeaderText = "Duracion";
-            this.Duracion.Name = "Duracion";
-            this.Duracion.Visible = false;
+            this.Modelo.Width = 200;
             // 
             // estado
             // 
             this.estado.HeaderText = "Estado";
             this.estado.Name = "estado";
-            // 
-            // responsable
-            // 
-            this.responsable.HeaderText = "Responsable";
-            this.responsable.Name = "responsable";
-            this.responsable.Width = 150;
+            this.estado.Width = 200;
             // 
             // VerRT
             // 
@@ -196,16 +133,9 @@ namespace PPAI.Interfaz
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView grillaRT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaAlta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Num;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Imagenes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Periodicidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fraccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn responsable;
     }
 }

@@ -9,7 +9,6 @@ namespace PPAI.Entidades.Estados
 {
     class DisponibleRT : Estado
     {
-
         public string Nombre { get => nombre; set => nombre = value; }
         private static EstadoServicio es = new EstadoServicio();
         public Entidades.Estado estadoManntenC = es.getEstado(6);

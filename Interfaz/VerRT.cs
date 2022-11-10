@@ -36,15 +36,9 @@ namespace PPAI.Interfaz
                 var fila = new string[] {
                 // Lo ponemos en el orden donde están las columnas en la grilla
                 recursoTecnologico.NumeroRT.ToString(),
-                recursoTecnologico.Duracion.ToString(),
-                recursoTecnologico.FraccionHorarioTurno.ToString(),
-                recursoTecnologico.FraccionHorarioTurno.ToString(),
-                recursoTecnologico.Periodicidad.ToString(),
-                recursoTecnologico.IdMantenimiento.ToString(),
-                recursoTecnologico.IdModelo.ToString(),
-                recursoTecnologico.IdTipoRT.ToString(),
-                recursoTecnologico.IdCambioEstadoRT.ToString(),
-                recursoTecnologico.IdTurno.ToString(),
+                recursoTecnologico.TipoRecurso.Nombre.ToString(),
+                recursoTecnologico.Modelo.Nombre.ToString(),
+                recursoTecnologico.Estado.Nombre.ToString(),
             };
 
                 grillaRT.Rows.Add(fila);
