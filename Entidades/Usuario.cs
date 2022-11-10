@@ -1,4 +1,5 @@
 ﻿using PPAI.AccesoDatos;
+using PPAI.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,11 @@ namespace PPAI.Entidades
         private string usuario;
         private string clave;
         private bool habilitado;
+        private PersonalCientificoServicio PersonalCientificoServicioBD;
 
         public Usuario()
         {
-
+            PersonalCientificoServicioBD = new PersonalCientificoServicio();
         }
 
         public Usuario(string nombreUsuario, string password, bool habilitado)
@@ -50,9 +52,10 @@ namespace PPAI.Entidades
             set => habilitado = false;
         }
 
-        public Usuario obtenerPersonal()
-        {           
-            return this;
+        public PersonalCientifico obtenerPersonalCientifico()
+        {
+            var personalCientifico = PersonalCientificoServicioBD.obtenerPersonalCientifico();
+            return personalCientifico;
         }
     }
 }

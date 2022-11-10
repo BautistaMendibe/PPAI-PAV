@@ -46,11 +46,14 @@ namespace PPAI.Controlador
 
         public void registrarIngresoRTMantenimientoCorrectivo()
         {
-            PersonalCientifico pc = obtenerPersonalCientifico();
-            //CentroDeInvestigacion ci = Datos.ci;
-            Usuario usuarioLogeado = obtenerUsuarioLogueado();
             
+            //CentroDeInvestigacion ci = Datos.ci;
+            Usuario usuarioLogueado = obtenerUsuarioLogueado();
+
+            PersonalCientifico pc = usuarioLogueado.obtenerPersonalCientifico();
+
             ra = obtenerRTCientifico(pc);
+
             //Obtener RTDisponibles para la asignacion responsable tecnico RT
             (lisRT) = obtenerRTDisponibles(ra);
             pantalla.cargarGrillaRTDisponibles(lisRT);
@@ -68,6 +71,7 @@ namespace PPAI.Controlador
 
         public AsignaciónResponsableTecnicoRT obtenerRTCientifico(PersonalCientifico pc)
         {
+            //asigResTecRT = Datos.crearAsignaciones();
             asigResTecRT = Datos.crearAsignaciones();
             for (int i = 0; i < asigResTecRT.Count; i++)
             {

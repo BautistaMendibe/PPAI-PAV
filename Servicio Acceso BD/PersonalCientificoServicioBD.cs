@@ -12,7 +12,7 @@ namespace PPAI.Servicios
     {
         public PersonalCientifico obtenerPersonalCientifico()
         {
-            var sql = $"SELECT Nombre_doc FROM TipoDoc WHERE legajo = 2;";
+            var sql = $"SELECT * FROM PersonalCientifico WHERE legajo = 2;";
             var tablaResultado = DBHelper.GetDBHelper().ConsultaSQL(sql);
             var personalCientifico = new PersonalCientifico();
 
