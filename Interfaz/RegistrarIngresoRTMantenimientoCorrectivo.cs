@@ -137,7 +137,7 @@ namespace PPAI.Interfaz
 
         public void cargarTurnos(List<Turno> turnos)
         {
-            TurnosRT ventanaTurnos = new TurnosRT();
+            TurnosRT ventanaTurnos = new TurnosRT(this);
             ventanaTurnos.cargarGrillaTurnos(turnos);
             ventanaTurnos.Show();
             //this.turnos = turnos;
@@ -206,6 +206,11 @@ namespace PPAI.Interfaz
         {
             var verRT = new VerRT();
             verRT.Show();
+        }
+
+        public void activarBotonConfirmar()
+        {
+            btnEnviarMail.Enabled = true;
         }
     }
 }

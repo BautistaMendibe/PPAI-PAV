@@ -13,10 +13,11 @@ namespace PPAI.Interfaz
 {
     public partial class TurnosRT : Form
     {
-        RegistrarIngresoRTMantenimientoCorrectivo pantalla;
-        public TurnosRT()
+        private RegistrarIngresoRTMantenimientoCorrectivo pantalla;
+        public TurnosRT(RegistrarIngresoRTMantenimientoCorrectivo gestor)
         {
             InitializeComponent();
+            pantalla = gestor;
         }
 
         private void TurnosRT_Load(object sender, EventArgs e)
@@ -82,6 +83,7 @@ namespace PPAI.Interfaz
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             this.Hide();
+            pantalla.activarBotonConfirmar();
         }
     }
 }
