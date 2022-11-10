@@ -207,7 +207,7 @@ namespace PPAI.Entidades
             {
                 turno.mostrarDatosTurno();
             }
-            return this.turnos;
+            return this.turnosRT;
         }
 
         public void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo, Estado estadoRT)

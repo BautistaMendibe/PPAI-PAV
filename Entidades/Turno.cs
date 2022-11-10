@@ -132,7 +132,7 @@ namespace PPAI.Entidades
 
         public (string, string) obtenerCientifico()
         {
-            asignacion = Datos.asigCienti;
+            //(string nom, string mail) = this.AsignacionCientifico.mostrarDatosCientifico(this);
             (string nom, string mail) = this.AsignacionCientifico.mostrarDatosCientifico(this);
             return (nom, mail);
         }

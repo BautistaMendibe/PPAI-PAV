@@ -140,9 +140,9 @@ namespace PPAI.Interfaz
             TurnosRT ventanaTurnos = new TurnosRT();
             ventanaTurnos.cargarGrillaTurnos(turnos);
             ventanaTurnos.Show();
-            this.turnos = turnos;
-            confirmarMantenimiento();
-            btnEnviarMail.Enabled = true;
+            //this.turnos = turnos;
+            //confirmarMantenimiento();
+            //btnEnviarMail.Enabled = true;
         }
 
         private void btnEnviarMail_Click(object sender, EventArgs e)

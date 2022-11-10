@@ -23,7 +23,7 @@ namespace PPAI.Interfaz
         {
             if (btnConfirmar.Enabled == true)
             {
-                solicitarConfirmacion();
+                //solicitarConfirmacion();
             }
             
         }
