@@ -30,6 +30,7 @@ namespace PPAI.Controlador
         private PersonalCientificoServicio personalCientificoServicioBD;
         private SesionServicio sesionServicioBD;
         private Usuario personalLogeado;
+        private AsignacionResponsableTecnicoRTServicio asignacionResponsableTecnicoRTServicioBD;
 
 
 
@@ -42,6 +43,7 @@ namespace PPAI.Controlador
             this.pantalla = pantalla;
             personalCientificoServicioBD = new PersonalCientificoServicio();
             sesionServicioBD = new SesionServicio();
+            asignacionResponsableTecnicoRTServicioBD = new AsignacionResponsableTecnicoRTServicio();
         }
 
         public void registrarIngresoRTMantenimientoCorrectivo()
@@ -71,8 +73,14 @@ namespace PPAI.Controlador
 
         public AsignaciónResponsableTecnicoRT obtenerRTCientifico(PersonalCientifico pc)
         {
-            //asigResTecRT = Datos.crearAsignaciones();
-            asigResTecRT = Datos.crearAsignaciones();
+            List<AsignaciónResponsableTecnicoRT> asigResTecRT = asignacionResponsableTecnicoRTServicioBD.getAsignaciones();
+
+            //foreach(AsignaciónResponsableTecnicoRT asignacion in asigResTecRT)
+            //{
+
+            //}
+
+
             for (int i = 0; i < asigResTecRT.Count; i++)
             {
                 if (asigResTecRT[i].PersonalCientifico.ToString().Equals(pc.ToString()))

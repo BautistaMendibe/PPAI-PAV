@@ -31,6 +31,27 @@ namespace PPAI.Servicios
             return personalCientifico;
         }
 
+        public PersonalCientifico obtenerPersonalCientifico(int id)
+        {
+            var sql = $"SELECT * FROM PersonalCientifico WHERE legajo = {id};";
+            var tablaResultado = DBHelper.GetDBHelper().ConsultaSQL(sql);
+            var personalCientifico = new PersonalCientifico();
+
+            foreach (DataRow fila in tablaResultado.Rows)
+            {
+                personalCientifico.Legajo = Convert.ToInt32(fila["legajo"]);
+                personalCientifico.Nombre = fila["nombre"].ToString();
+                personalCientifico.Apellido = fila["apellido"].ToString();
+                personalCientifico.TelefonoCelular = Convert.ToInt32(fila["celular"]); ;
+                personalCientifico.CorreoInstitu = fila["correoInstitucional"].ToString();
+                personalCientifico.CorreoPersonal = fila["correoPersonal"].ToString();
+                personalCientifico.NumeroDocumento = Convert.ToInt32(fila["numeroDocumento"]);
+                personalCientifico.IdUsuarioActual = Convert.ToInt32(fila["id_usuario"]);
+            }
+
+            return personalCientifico;
+        }
+
 
     }
 }

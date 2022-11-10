@@ -24,12 +24,6 @@ namespace PPAI.Interfaz
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            //DateTime horaInicio = DateTime.Now;
-            //Sesion sesionActual = new Sesion(horaInicio, horaInicio, null);
-            //Usuario se = sesionActual.esTuUsuario(txtNombreUsuario.Text, txtContraseña.Text, sesionActual);
-
-            //sesionActual.UsuarioSeleccionado = se;
-
             bool existe = verificarExistenciaUsuario(txtNombreUsuario.Text, txtContraseña.Text);
 
             if (existe == true)
