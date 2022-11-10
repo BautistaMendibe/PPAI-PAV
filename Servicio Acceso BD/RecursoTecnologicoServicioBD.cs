@@ -17,6 +17,7 @@ namespace PPAI.Servicios
         private ModeloServicio modeloServicioBD = new ModeloServicio();
         private TipoRecursoTecnologicoServicio tipoRTServicioBD = new TipoRecursoTecnologicoServicio();
         private EstadoServicio estadoServicioBD = new EstadoServicio();
+        private CambioEstadoTurnoServicio cambioEstadoTurnoServicioBD = new CambioEstadoTurnoServicio();
 
         public List<RecursoTecnologico> GetRecursos()
         {
@@ -41,6 +42,8 @@ namespace PPAI.Servicios
 
                 int idEstado = Convert.ToInt32(fila["id_estado"].ToString());
                 recursoTecnologico.Estado = estadoServicioBD.getEstado(idEstado);
+
+                //recursoTecnologico.CambioEstado = cambioEstadoTurnoServicioBD.GetCambiosEstados(recursoTecnologico.NumeroRT);
 
                 recursos.Add(recursoTecnologico);
             }

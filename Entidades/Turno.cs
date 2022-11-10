@@ -87,7 +87,7 @@ namespace PPAI.Entidades
                 {
                     if (cambio.esActual())
                     {
-                        this.ultimo = cambio;                       
+                        this.ultimo = cambio;
                     }
                 }
 

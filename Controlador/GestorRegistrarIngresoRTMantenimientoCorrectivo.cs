@@ -146,7 +146,6 @@ namespace PPAI.Controlador
         public List<Turno> obtenerTurnosRTCancelables()
         {
             listaTurnos = this.rtSelec.obtenerTurnosCancelablesEnPeriodo(fechaFinPrevistaSeleccionada);
-            //listaTurnos = this.rtSelec.obtenerTurnosCancelablesEnPeriodo(listaTurnos, fechaFinPrevistaSeleccionada);
             return listaTurnos;
         }
 

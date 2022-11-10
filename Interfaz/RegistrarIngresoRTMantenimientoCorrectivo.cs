@@ -28,7 +28,6 @@ namespace PPAI.Interfaz
         {
             gestor = new GestorRegistrarIngresoRTMantenimientoCorrectivo(this);
             gestor.registrarIngresoRTMantenimientoCorrectivo();
-            
 
         }
 

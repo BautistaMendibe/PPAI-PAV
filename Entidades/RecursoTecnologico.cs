@@ -177,49 +177,17 @@ namespace PPAI.Entidades
             return rt.NumeroRT;
         }
 
-        public List<Turno> obtenerTurnosCancelablesEnPeriodo(List<Turno> turnos, DateTime fechaFinPrevistaSeleccionada)
-        {
-            //List<Turno> turnosList = new List<Turno>();
-            bool ban = false;
-            foreach (Turno turno in this.turnos)
-            {
-                if (turno.esCancelableEnPeriodo(fechaFinPrevistaSeleccionada) == false)
-                {
-                    ban = true;
-                    //turnos.Remove(turno);
-                }
-            }
-            if (ban)
-            {
-                return null;
-            }
-            else
-            {
-                return turnos;
-            }
-        }
-
         public List<Turno> obtenerTurnosCancelablesEnPeriodo(DateTime fechaFinPrevistaSeleccionada)
         {
             List<Turno> turnosRT = turnoServicioBD.getTurnosPorRT(this.numeroRT);
-            
-            bool ban = false;
             foreach (Turno turno in turnosRT)
             {
                 if (turno.esCancelableEnPeriodo(fechaFinPrevistaSeleccionada) == false)
                 {
-                    ban = true;
-                    //turnos.Remove(turno);
+                    turnosRT.Remove(turno);
                 }
             }
-            if (ban)
-            {
-                return null;
-            }
-            else
-            {
-                return turnos;
-            }
+            return turnosRT;
         }
 
         public List<Turno> mostrarTurnosReserva(List<Turno> turnos)

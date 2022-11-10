@@ -96,7 +96,7 @@ namespace PPAI.Entidades
 
         public bool sCancelable()
         {
-            if (this.EsCancelable.Equals(true))
+            if (Ambito.Trim() == "turno" && (Nombre.Trim() == "DisponibleTurno" || Nombre.Trim() == "PendienteDeConfirmarReserva" || Nombre.Trim() == "ConReservaConfirmada"))
             {
                 return true;
             }

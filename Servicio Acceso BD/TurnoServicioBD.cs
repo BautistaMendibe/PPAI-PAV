@@ -13,6 +13,7 @@ namespace PPAI.Servicio_Acceso_BD
     {
         private EstadoServicio estadoServicioBD = new EstadoServicio();
         private AsignacionCientificoDelCIServicio asignacionServicioBD = new AsignacionCientificoDelCIServicio();
+        private CambioEstadoTurnoServicio cambioEstadoTurnoServicioBD = new CambioEstadoTurnoServicio();
         public List<Turno> getTurnosPorRT(int numeroRT)
         {
             var sql = $"SELECT * FROM Turno WHERE id_rt = {numeroRT}";
@@ -32,6 +33,8 @@ namespace PPAI.Servicio_Acceso_BD
 
                 int idASignacion = Convert.ToInt32(fila["id_asignacion"].ToString());
                 turno.AsignacionCientifico = asignacionServicioBD.getAsignacion(idASignacion);
+
+                turno.CambioEstado = cambioEstadoTurnoServicioBD.GetCambiosEstados(Convert.ToInt32(fila["id"].ToString()));
 
                 turnos.Add(turno);
             }
