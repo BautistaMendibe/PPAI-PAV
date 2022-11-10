@@ -17,7 +17,7 @@ namespace PPAI.Servicios
         private ModeloServicio modeloServicioBD = new ModeloServicio();
         private TipoRecursoTecnologicoServicio tipoRTServicioBD = new TipoRecursoTecnologicoServicio();
         private EstadoServicio estadoServicioBD = new EstadoServicio();
-        private CambioEstadoTurnoServicio cambioEstadoTurnoServicioBD = new CambioEstadoTurnoServicio();
+        private CambioEstadoRTServicio cambioEstadoRTServicioBD = new CambioEstadoRTServicio();
 
         public List<RecursoTecnologico> GetRecursos()
         {
@@ -43,7 +43,7 @@ namespace PPAI.Servicios
                 int idEstado = Convert.ToInt32(fila["id_estado"].ToString());
                 recursoTecnologico.Estado = estadoServicioBD.getEstado(idEstado);
 
-                //recursoTecnologico.CambioEstado = cambioEstadoTurnoServicioBD.GetCambiosEstados(recursoTecnologico.NumeroRT);
+                recursoTecnologico.CambioEstado = cambioEstadoRTServicioBD.GetCambiosEstados(recursoTecnologico.NumeroRT);
 
                 recursos.Add(recursoTecnologico);
             }
@@ -75,6 +75,8 @@ namespace PPAI.Servicios
                 int idEstado = Convert.ToInt32(fila["id_estado"].ToString());
                 recursoTecnologico.Estado = estadoServicioBD.getEstado(idEstado);
 
+                recursoTecnologico.CambioEstado = cambioEstadoRTServicioBD.GetCambiosEstados(recursoTecnologico.NumeroRT);
+
                 recursos.Add(recursoTecnologico);
             }
 
@@ -103,6 +105,8 @@ namespace PPAI.Servicios
 
                 int idEstado = Convert.ToInt32(fila["id_estado"].ToString());
                 recursoTecnologico.Estado = estadoServicioBD.getEstado(idEstado);
+
+                recursoTecnologico.CambioEstado = cambioEstadoRTServicioBD.GetCambiosEstados(recursoTecnologico.NumeroRT);
             }
 
             return recursoTecnologico;

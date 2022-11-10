@@ -1,4 +1,5 @@
-﻿using PPAI.Servicio_Acceso_BD;
+﻿using PPAI.Entidades.Estados;
+using PPAI.Servicio_Acceso_BD;
 using PPAI.Servicios;
 using System;
 using System.Collections.Generic;
@@ -31,15 +32,18 @@ namespace PPAI.Entidades
         private int id_turno;
 
         private Estado estado;
+        private DisponibleRT estadoDisponibleRT;
         private EstadoServicio estadoServicioBD;
         private TurnoServicioBD turnoServicioBD;
         private List<Turno> turnosRT;
 
 
+        // Constructor
         public RecursoTecnologico()
         {
             estadoServicioBD = new EstadoServicio();
             turnoServicioBD = new TurnoServicioBD();
+            estadoDisponibleRT = new DisponibleRT();
         }
 
         public int NumeroRT
@@ -210,12 +214,9 @@ namespace PPAI.Entidades
             return this.turnosRT;
         }
 
-        public void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo, Estado estadoRT)
+        public void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo)
         {
-            this.cambioEstadoActual.setFechaFin(time);
-            this.cambioEstado.Add(new CambioEstadoRT(time, null, estadoRT));
-            List<Mantenimiento> mantenimiento = new List<Mantenimiento>();
-            mantenimiento.Add(new Mantenimiento(null, time, fechaFinPrev, motivo));   
+            estadoDisponibleRT.ingresarEnMantenimientoCorrectivo(time, fechaFinPrev, motivo, cambioEstado);
         }
 
         public void cancelarTurnos(DateTime time, Estado estadoRT)

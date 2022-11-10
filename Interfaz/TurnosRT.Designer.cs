@@ -153,7 +153,6 @@
             this.Name = "TurnosRT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TurnosRT";
-            this.Load += new System.EventHandler(this.TurnosRT_Load);
             this.grupoTurnos.ResumeLayout(false);
             this.grupoTurnos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaTurnos)).EndInit();

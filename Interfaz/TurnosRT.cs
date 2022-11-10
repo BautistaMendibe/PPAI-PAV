@@ -20,15 +20,6 @@ namespace PPAI.Interfaz
             pantalla = gestor;
         }
 
-        private void TurnosRT_Load(object sender, EventArgs e)
-        {
-            if (btnConfirmar.Enabled == true)
-            {
-                //solicitarConfirmacion();
-            }
-            
-        }
-
         public void cargarGrillaTurnos(List<Turno> turnos)
         {
             DataRow row;

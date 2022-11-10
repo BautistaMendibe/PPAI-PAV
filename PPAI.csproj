@@ -110,6 +110,7 @@
     <Compile Include="Controlador\GestorRegistrarIngresoRTMantenimientoCorrectivo.cs" />
     <Compile Include="Entidades\Estados\DisponibleRT.cs" />
     <Compile Include="Entidades\Estados\Estado.cs" />
+    <Compile Include="Entidades\Estados\IngresadoEnMantenimientoCorrectivo.cs" />
     <Compile Include="Entidades\Mantenimiento.cs" />
     <Compile Include="Entidades\Marca.cs" />
     <Compile Include="Entidades\Modelo.cs" />

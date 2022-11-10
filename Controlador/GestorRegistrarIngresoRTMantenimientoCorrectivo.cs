@@ -135,16 +135,6 @@ namespace PPAI.Controlador
             {
                 pantalla.aviso2();
             }
-
-            //if (listaTurnos != null)
-            //{
-            //    pantalla.aviso2();
-            //}
-            //else
-            //{
-            //    obtenerReservasVigentes();
-            //}
-
         }
 
         public DateTime obtenerFechaHora()
@@ -169,15 +159,20 @@ namespace PPAI.Controlador
 
         }
 
-        public void ingresarRTMantenimientoCorrectivo(bool ban)
-        {
-            obtenerEstado();
-            rtSelec.ingresarEnMantenimientoCorrectivo(timeActual, fechaFinPrevistaSeleccionada, razonMantenimientoIngresado,esConfMCorr);
-            if (ban)
-            {
-                rtSelec.cancelarTurnos(timeActual, esConfMCorr);
-            }
+        //public void ingresarRTMantenimientoCorrectivo(bool ban)
+        //{
+        //    obtenerEstado();
+        //    rtSelec.ingresarEnMantenimientoCorrectivo(timeActual, fechaFinPrevistaSeleccionada, razonMantenimientoIngresado,esConfMCorr);
+        //    if (ban)
+        //    {
+        //        rtSelec.cancelarTurnos(timeActual, esConfMCorr);
+        //    }
             
+        //}
+
+        public void ingresarRTMantenimientoCorrectivo()
+        {
+            rtSelec.ingresarEnMantenimientoCorrectivo(timeActual, fechaFinPrevistaSeleccionada, razonMantenimientoIngresado);
         }
 
         public void obtenerEstado()

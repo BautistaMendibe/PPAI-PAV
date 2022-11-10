@@ -12,7 +12,7 @@ namespace PPAI.Entidades.Estados
         public string ambito;
 
 
-        abstract public bool esDisponible();
+        abstract public void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo, List<CambioEstadoRT> cambiosEstadosRT);
 
     }
 }

@@ -10,6 +10,7 @@ namespace PPAI.Entidades
     {
         private DateTime? fechaHoraDesde;
         private DateTime? fechaHoraHasta;
+
         private Estado estado;
 
         public DateTime? FechaHoraDesde
@@ -32,6 +33,13 @@ namespace PPAI.Entidades
 
         }
 
+        //public CambioEstadoRT(DateTime? fechaHoraDesde, DateTime? fechaHoraHasta, Estado estado)
+        //{
+        //    this.fechaHoraHasta = fechaHoraHasta;
+        //    this.estado = estado;
+        //    this.fechaHoraDesde = fechaHoraDesde;
+        //}
+
         public CambioEstadoRT(DateTime? fechaHoraDesde, DateTime? fechaHoraHasta, Estado estado)
         {
             this.fechaHoraHasta = fechaHoraHasta;
@@ -39,9 +47,9 @@ namespace PPAI.Entidades
             this.fechaHoraDesde = fechaHoraDesde;
         }
 
-        public bool esActual(CambioEstadoRT cambio)
+        public bool esActual()
         {
-            if (cambio.FechaHoraHasta.Equals(null))
+            if (FechaHoraHasta.Equals(null))
             {
                 return true;
             }
@@ -49,12 +57,6 @@ namespace PPAI.Entidades
             {
                 return false;
             }
-        }
-
-        public bool esDisponible(CambioEstadoRT cambio)
-        {
-            bool es;
-            return es = cambio.EstadoActual.esDisponible(cambio.EstadoActual);
         }
 
         public void setFechaFin(DateTime time)

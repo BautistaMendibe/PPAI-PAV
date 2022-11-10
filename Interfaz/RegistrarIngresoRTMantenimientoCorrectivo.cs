@@ -132,7 +132,7 @@ namespace PPAI.Interfaz
 
         public void confirmarMantenimiento()
         {
-            gestor.ingresarRTMantenimientoCorrectivo(true);
+            gestor.ingresarRTMantenimientoCorrectivo();
         }
 
         public void cargarTurnos(List<Turno> turnos)
@@ -148,6 +148,7 @@ namespace PPAI.Interfaz
         private void btnEnviarMail_Click(object sender, EventArgs e)
         {
             btnCancelar.Enabled = false;
+            gestor.ingresarRTMantenimientoCorrectivo();
             gestor.generarMail();
             limpiarCampos();
         }
@@ -187,7 +188,7 @@ namespace PPAI.Interfaz
             if (resultado == DialogResult.OK)
             {
                 btnEnviarMail.Enabled = true;
-                gestor.ingresarRTMantenimientoCorrectivo(false);
+                gestor.ingresarRTMantenimientoCorrectivo();
             }
             else
             {

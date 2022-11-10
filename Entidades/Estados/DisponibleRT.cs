@@ -10,11 +10,38 @@ namespace PPAI.Entidades.Estados
     {
         public string Nombre { get => nombre; set => nombre = value; }
         public string Ambito { get => ambito; set => ambito = value; }
+        private CambioEstadoRT ultimoCambioRT;
 
-        override
-        public bool esDisponible()
+        public override void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo, List<CambioEstadoRT> cambiosEstadosRT){
+            CambioEstadoRT actualCambioEstado = buscarHistorialRTActual(cambiosEstadosRT);
+            actualCambioEstado.setFechaFin(time);
+
+            IngresadoEnMantenimientoCorrectivo nuevoEstado = crearEstadoIngresadoEnMantenimientoCorrectivo();
+            CambioEstadoRT nuevoHistorial = crearNuevoHistorialRT(time, nuevoEstado);
+        }
+
+        private CambioEstadoRT buscarHistorialRTActual(List<CambioEstadoRT> cambiosEstadosRT)
         {
-            return true;
+            foreach (CambioEstadoRT cambioEstadoRT in cambiosEstadosRT)
+            {
+                if (cambioEstadoRT.esActual())
+                {
+                    ultimoCambioRT = cambioEstadoRT;
+                }
+            }
+            return ultimoCambioRT;
+        }
+
+        private IngresadoEnMantenimientoCorrectivo crearEstadoIngresadoEnMantenimientoCorrectivo()
+        {
+            IngresadoEnMantenimientoCorrectivo  estadoIngresadoEnMantenimientoCorrectivo = new IngresadoEnMantenimientoCorrectivo();
+            return estadoIngresadoEnMantenimientoCorrectivo;
+        }
+
+        private CambioEstadoRT crearNuevoHistorialRT(DateTime fechaHoraInicio, Estado estado)
+        {
+            CambioEstadoRT historialEstadoRT = new CambioEstadoRT();
+            return historialEstadoRT;
         }
     }
 }
