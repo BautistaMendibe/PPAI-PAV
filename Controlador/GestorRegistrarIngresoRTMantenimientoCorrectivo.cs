@@ -151,7 +151,7 @@ namespace PPAI.Controlador
 
         public void obtenerReservasVigentes()
         {
-            listaTurnos = this.rtSelec.mostrarTurnosReserva(listaTurnos);
+            listaTurnos = this.rtSelec.mostrarTurnosReserva();
             pantalla.cargarTurnos(listaTurnos);
         }
 

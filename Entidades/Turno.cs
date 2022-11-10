@@ -81,6 +81,7 @@ namespace PPAI.Entidades
         public bool esCancelableEnPeriodo(DateTime fechaFinPrevistaSeleccionada)
         {
             bool es = esDePeriodo(this, fechaFinPrevistaSeleccionada);
+
             if (es)
             {
                 foreach (CambioEstadoTurno cambio in cambioEstado)
@@ -90,7 +91,6 @@ namespace PPAI.Entidades
                         this.ultimo = cambio;
                     }
                 }
-
                 if (ultimo.esCancelable())
                 {
                     return true;

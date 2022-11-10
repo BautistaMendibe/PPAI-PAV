@@ -53,7 +53,7 @@ namespace PPAI.Entidades
 
         public bool esCancelable()
         {
-            return this.estado.sCancelable();
+            return EstadoActual.sCancelable(EstadoActual.Nombre, EstadoActual.Ambito);
         }
 
         public bool esConReserva()

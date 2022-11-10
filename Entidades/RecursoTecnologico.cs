@@ -33,6 +33,7 @@ namespace PPAI.Entidades
         private Estado estado;
         private EstadoServicio estadoServicioBD;
         private TurnoServicioBD turnoServicioBD;
+        private List<Turno> turnosRT;
 
 
         public RecursoTecnologico()
@@ -179,20 +180,24 @@ namespace PPAI.Entidades
 
         public List<Turno> obtenerTurnosCancelablesEnPeriodo(DateTime fechaFinPrevistaSeleccionada)
         {
-            List<Turno> turnosRT = turnoServicioBD.getTurnosPorRT(this.numeroRT);
-            foreach (Turno turno in turnosRT)
+            this.turnosRT = turnoServicioBD.getTurnosPorRT(this.numeroRT);
+
+            for (int i = turnosRT.Count - 1; i >= 0; i--)
             {
-                if (turno.esCancelableEnPeriodo(fechaFinPrevistaSeleccionada) == false)
+                if (turnosRT[i].esCancelableEnPeriodo(fechaFinPrevistaSeleccionada) == false)
                 {
-                    turnosRT.Remove(turno);
+                    turnosRT.Remove(turnosRT[i]);
                 }
             }
+
             return turnosRT;
         }
 
-        public List<Turno> mostrarTurnosReserva(List<Turno> turnos)
+        public List<Turno> mostrarTurnosReserva()
         {
-            foreach (Turno turno in this.turnos)
+            List<Turno> turnosRT = turnoServicioBD.getTurnosPorRT(this.numeroRT);
+
+            foreach (Turno turno in turnosRT)
             {
                 if (turno.esConReserva() == false)
                 {
