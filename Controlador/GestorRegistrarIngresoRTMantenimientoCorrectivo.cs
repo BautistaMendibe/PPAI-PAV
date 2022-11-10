@@ -75,22 +75,16 @@ namespace PPAI.Controlador
         {
             List<AsignaciónResponsableTecnicoRT> asigResTecRT = asignacionResponsableTecnicoRTServicioBD.getAsignaciones();
 
-            //foreach(AsignaciónResponsableTecnicoRT asignacion in asigResTecRT)
-            //{
-
-            //}
-
-
-            for (int i = 0; i < asigResTecRT.Count; i++)
+            foreach (AsignaciónResponsableTecnicoRT asignacion in asigResTecRT)
             {
-                if (asigResTecRT[i].PersonalCientifico.ToString().Equals(pc.ToString()))
+                if (asignacion.PersonalCientifico.Legajo.Equals(pc.Legajo))
                 {
-                    bool es = asigResTecRT[i].esAsignacionVigenteCientifico(asigResTecRT[i]);
-                    if (es)
+                    bool esVigente = asignacion.esAsignacionVigenteCientifico(asignacion);
+                    if (esVigente)
                     {
-                        ra = asigResTecRT[i];
+                        ra = asignacion;
                     }
-                }
+                }                
             }
             return ra;
         }

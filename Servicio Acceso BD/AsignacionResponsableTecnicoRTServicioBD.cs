@@ -25,7 +25,15 @@ namespace PPAI.Servicios
             {
                 var asignacionResponsableTecnicoRT = new AsignaciónResponsableTecnicoRT();
                 asignacionResponsableTecnicoRT.FechaDesde = Convert.ToDateTime(fila["fechaDesde"]);
-                asignacionResponsableTecnicoRT.FechaHasta = Convert.ToDateTime(fila["fechaHasta"]);
+
+                if (fila["fechaHasta"].Equals(DBNull.Value))
+                {
+                    asignacionResponsableTecnicoRT.FechaHasta = null;
+                }
+                else
+                {
+                    asignacionResponsableTecnicoRT.FechaHasta = Convert.ToDateTime(fila["fechaHasta"]);
+                }
 
                 int idPersonalCientifico = Convert.ToInt32(fila["id_personalCientifico"].ToString());
                 asignacionResponsableTecnicoRT.PersonalCientifico = personalCientificoServicioBD.obtenerPersonalCientifico(idPersonalCientifico);
