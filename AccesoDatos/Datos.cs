@@ -80,11 +80,11 @@ namespace PPAI.AccesoDatos
         {
             List<CambioEstadoRT> list = new List<CambioEstadoRT>();
 
-            list.Add(new CambioEstadoRT(date1, date1, new Estado(1, "Disponible", "Descripcion", "Recurso Tecnologico", false, false)));
-            list.Add(new CambioEstadoRT(date1, date2, new Estado(1, "Disponible", "Descripcion", "Recurso Tecnologico", false, false)));
-            list.Add(new CambioEstadoRT(date2, date3, new Estado(1, "Disponible", "Descripcion", "Recurso Tecnologico", false, false)));
-            list.Add(new CambioEstadoRT(date3, null, new Estado(1, "Disponible", "Descripcion", "Recurso Tecnologico", false, false)));
-            list.Add(new CambioEstadoRT(date1, date4, new Estado(6, "EnMantenimientoCorrectivo", "Descripcion", "Recurso Tecnologico", false, false)));
+            //list.Add(new CambioEstadoRT(date1, date1, new Estado(1, "Disponible", "Descripcion", "Recurso Tecnologico", false, false)));
+            //list.Add(new CambioEstadoRT(date1, date2, new Estado(1, "Disponible", "Descripcion", "Recurso Tecnologico", false, false)));
+            //list.Add(new CambioEstadoRT(date2, date3, new Estado(1, "Disponible", "Descripcion", "Recurso Tecnologico", false, false)));
+            //list.Add(new CambioEstadoRT(date3, null, new Estado(1, "Disponible", "Descripcion", "Recurso Tecnologico", false, false)));
+            //list.Add(new CambioEstadoRT(date1, date4, new Estado(6, "EnMantenimientoCorrectivo", "Descripcion", "Recurso Tecnologico", false, false)));
 
             return list;
 

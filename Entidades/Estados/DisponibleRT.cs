@@ -17,7 +17,7 @@ namespace PPAI.Entidades.Estados
             actualCambioEstado.setFechaFin(time);
 
             IngresadoEnMantenimientoCorrectivo nuevoEstado = crearEstadoIngresadoEnMantenimientoCorrectivo();
-            CambioEstadoRT nuevoHistorial = crearNuevoHistorialRT(time, nuevoEstado);
+            //CambioEstadoRT nuevoHistorial = crearNuevoHistorialRT(time, nuevoEstado);
         }
 
         private CambioEstadoRT buscarHistorialRTActual(List<CambioEstadoRT> cambiosEstadosRT)
@@ -38,10 +38,10 @@ namespace PPAI.Entidades.Estados
             return estadoIngresadoEnMantenimientoCorrectivo;
         }
 
-        private CambioEstadoRT crearNuevoHistorialRT(DateTime fechaHoraInicio, Estado estado)
-        {
-            CambioEstadoRT historialEstadoRT = new CambioEstadoRT();
-            return historialEstadoRT;
-        }
+        //private CambioEstadoRT crearNuevoHistorialRT(DateTime fechaHoraInicio, IngresadoEnMantenimientoCorrectivo estado)
+        //{
+        //    CambioEstadoRT historialEstadoRT = new CambioEstadoRT(fechaHoraInicio, null, estado);
+        //    return historialEstadoRT;
+        //}
     }
 }

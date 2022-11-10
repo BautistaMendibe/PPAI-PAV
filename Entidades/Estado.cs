@@ -58,29 +58,29 @@ namespace PPAI.Entidades
             this.esCancelable = esCancelable;
         }
 
-        public bool esDisponible(Estado e)
-        {
-            if (e.Ambito.Equals("Recurso Tecnologico") && e.Nombre.Equals("Disponible"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public bool esDisponible(Estado e)
+        //{
+        //    if (e.Ambito.Equals("Recurso Tecnologico") && e.Nombre.Equals("Disponible"))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
-        public bool esReservado(Estado e)
-        {
-            if (e.esReservable.Equals(true))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public bool esReservado(Estado e)
+        //{
+        //    if (e.esReservable.Equals(true))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
         public bool esReservado()
         {
@@ -106,17 +106,17 @@ namespace PPAI.Entidades
             }
         }
 
-        public bool esPendienteConfirmacionReserva(Estado e)
-        {
-            if (e.Nombre.ToString().Equals("PendienteConfirmacionReserva"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public bool esPendienteConfirmacionReserva(Estado e)
+        //{
+        //    if (e.Nombre.ToString().Equals("PendienteConfirmacionReserva"))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
         
 

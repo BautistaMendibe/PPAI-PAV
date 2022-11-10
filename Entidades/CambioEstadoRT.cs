@@ -28,17 +28,7 @@ namespace PPAI.Entidades
             get => estado; set => estado = value;
         }
 
-        public CambioEstadoRT()
-        {
-
-        }
-
-        //public CambioEstadoRT(DateTime? fechaHoraDesde, DateTime? fechaHoraHasta, Estado estado)
-        //{
-        //    this.fechaHoraHasta = fechaHoraHasta;
-        //    this.estado = estado;
-        //    this.fechaHoraDesde = fechaHoraDesde;
-        //}
+        public CambioEstadoRT(){}
 
         public CambioEstadoRT(DateTime? fechaHoraDesde, DateTime? fechaHoraHasta, Estado estado)
         {
