@@ -159,6 +159,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicio Acceso BD\AsignacionCientificoDelCIServicioBD.cs" />
     <Compile Include="Servicio Acceso BD\AsignacionResponsableTecnicoRTServicioBD.cs" />
+    <Compile Include="Servicio Acceso BD\AsingaciónCientificoDelCI.cs" />
     <Compile Include="Servicio Acceso BD\CambioEstadoRTServicioBD.cs" />
     <Compile Include="Servicio Acceso BD\CambioEstadoTurnoServicioBD.cs" />
     <Compile Include="Servicio Acceso BD\CentroDeInvestigacionServicioBD.cs" />

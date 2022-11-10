@@ -1,4 +1,5 @@
-﻿using PPAI.Servicios;
+﻿using PPAI.Servicio_Acceso_BD;
+using PPAI.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,11 +32,13 @@ namespace PPAI.Entidades
 
         private Estado estado;
         private EstadoServicio estadoServicioBD;
+        private TurnoServicioBD turnoServicioBD;
 
 
         public RecursoTecnologico()
         {
             estadoServicioBD = new EstadoServicio();
+            turnoServicioBD = new TurnoServicioBD();
         }
 
         public int NumeroRT
@@ -194,8 +197,29 @@ namespace PPAI.Entidades
             {
                 return turnos;
             }
+        }
 
+        public List<Turno> obtenerTurnosCancelablesEnPeriodo(DateTime fechaFinPrevistaSeleccionada)
+        {
+            List<Turno> turnosRT = turnoServicioBD.getTurnosPorRT(this.numeroRT);
             
+            bool ban = false;
+            foreach (Turno turno in turnosRT)
+            {
+                if (turno.esCancelableEnPeriodo(fechaFinPrevistaSeleccionada) == false)
+                {
+                    ban = true;
+                    //turnos.Remove(turno);
+                }
+            }
+            if (ban)
+            {
+                return null;
+            }
+            else
+            {
+                return turnos;
+            }
         }
 
         public List<Turno> mostrarTurnosReserva(List<Turno> turnos)

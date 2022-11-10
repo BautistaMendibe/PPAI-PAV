@@ -16,6 +16,7 @@ namespace PPAI.Entidades
         private DateTime fechaHoraFin;
         private List<CambioEstadoTurno> cambioEstado;
         private AsignaciónCientificoDelCI asignacion;
+        private Estado estado;
 
         private CambioEstadoTurno ultimo;
 
@@ -55,6 +56,12 @@ namespace PPAI.Entidades
             set => asignacion = value;
         }
 
+        public Estado Estado
+        {
+            get => estado;
+            set => estado = value;
+        }
+
         public Turno()
         {
 
@@ -82,14 +89,12 @@ namespace PPAI.Entidades
                     {
                         this.ultimo = cambio;                       
                     }
-                   
                 }
 
                 if (ultimo.esCancelable())
                 {
                     return true;
                 }
-                //return false;
             }
             return false;
         }
