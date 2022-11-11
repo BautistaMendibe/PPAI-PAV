@@ -159,40 +159,11 @@ namespace PPAI.Controlador
 
         }
 
-        //public void ingresarRTMantenimientoCorrectivo(bool ban)
-        //{
-        //    obtenerEstado();
-        //    rtSelec.ingresarEnMantenimientoCorrectivo(timeActual, fechaFinPrevistaSeleccionada, razonMantenimientoIngresado,esConfMCorr);
-        //    if (ban)
-        //    {
-        //        rtSelec.cancelarTurnos(timeActual, esConfMCorr);
-        //    }
-            
-        //}
+        
 
         public void ingresarRTMantenimientoCorrectivo()
         {
             rtSelec.ingresarEnMantenimientoCorrectivo(timeActual, fechaFinPrevistaSeleccionada, razonMantenimientoIngresado);
-        }
-
-        public void obtenerEstado()
-        {
-            List<Estado> listaEstado = Datos.conocerEstados();
-            for (int i = 0; i < listaEstado.Count; i++)
-            {
-                bool esAT = listaEstado[i].esAmbitoTurno(listaEstado[i]);
-                bool esCMC = listaEstado[i].esCanceladoMantenimientoCorrectivo(listaEstado[i]);
-                if (esAT && esCMC)
-                {
-                    esConfMCorr = listaEstado[i];
-                }
-                bool esART = listaEstado[i].esAmbitoRT(listaEstado[i]);
-                bool esEnMC = listaEstado[i].esEnMantenimientoCorrectivo(listaEstado[i]);
-                if (esAT && esCMC)
-                {
-                    esEnMCorr = listaEstado[i];
-                }
-            }
         }
 
         public void generarMail()
