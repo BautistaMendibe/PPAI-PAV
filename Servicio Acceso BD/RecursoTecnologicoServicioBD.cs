@@ -51,6 +51,38 @@ namespace PPAI.Servicios
             return recursos;
         }
 
+        public List<RecursoTecnologico> GetRecursosDisponibles()
+        {
+            var sql = $"SELECT * FROM RecursoTecnologico WHERE id_estado = 1";
+            var tablaResultado = DBHelper.GetDBHelper().ConsultaSQL(sql);
+            var recursos = new List<RecursoTecnologico>();
+
+            foreach (DataRow fila in tablaResultado.Rows)
+            {
+                var recursoTecnologico = new RecursoTecnologico();
+                recursoTecnologico.NumeroRT = Convert.ToInt32(fila["numeroRT"].ToString());
+                recursoTecnologico.Duracion = Convert.ToInt32(fila["duracion"].ToString());
+                recursoTecnologico.FechaAlta = Convert.ToDateTime(fila["fechaAlta"].ToString());
+                recursoTecnologico.FraccionHorarioTurno = Convert.ToInt32(fila["fraccionHorarioTurno"].ToString());
+                recursoTecnologico.Periodicidad = Convert.ToInt32(fila["periocidadMantenimientoPreventivo"].ToString());
+
+                int idModelo = Convert.ToInt32(fila["id_modelo"].ToString());
+                recursoTecnologico.Modelo = modeloServicioBD.getModelo(idModelo);
+
+                int idTipo = Convert.ToInt32(fila["id_tipoRT"].ToString());
+                recursoTecnologico.TipoRecurso = tipoRTServicioBD.getTipoRT(idTipo);
+
+                int idEstado = Convert.ToInt32(fila["id_estado"].ToString());
+                recursoTecnologico.Estado = estadoServicioBD.getEstado(idEstado);
+
+                recursoTecnologico.CambioEstado = cambioEstadoRTServicioBD.GetCambiosEstados(recursoTecnologico.NumeroRT);
+
+                recursos.Add(recursoTecnologico);
+            }
+
+            return recursos;
+        }
+
         public List<RecursoTecnologico> GetRecursosPorAsignacion(int idAsignacion)
         {
             var sql = $"SELECT * FROM RecursoTecnologico WHERE id_asignacion = {idAsignacion}";

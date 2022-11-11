@@ -31,6 +31,7 @@ namespace PPAI.Controlador
         private SesionServicio sesionServicioBD;
         private Usuario personalLogeado;
         private AsignacionResponsableTecnicoRTServicio asignacionResponsableTecnicoRTServicioBD;
+        private RecursoTecnologicoServicio recursoTecnologicoServicio;
 
 
 
@@ -44,6 +45,7 @@ namespace PPAI.Controlador
             personalCientificoServicioBD = new PersonalCientificoServicio();
             sesionServicioBD = new SesionServicio();
             asignacionResponsableTecnicoRTServicioBD = new AsignacionResponsableTecnicoRTServicio();
+            recursoTecnologicoServicio = new RecursoTecnologicoServicio();
         }
 
         public void registrarIngresoRTMantenimientoCorrectivo()
@@ -90,7 +92,8 @@ namespace PPAI.Controlador
 
         private List<RecursoTecnologico> obtenerRTDisponibles(AsignaciónResponsableTecnicoRT ra)
         {
-            lisRT = ra.obtenerRTDisponibles(ra);
+            lisRT = recursoTecnologicoServicio.GetRecursosDisponibles();
+            //lisRT = ra.obtenerRTDisponibles(ra);
             if (lisRT.Count == 0)
             {
                 pantalla.aviso();
